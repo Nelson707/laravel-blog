@@ -12,72 +12,26 @@
             <h5 class="title">Top Stories</h5>
             <div class="widget-content">
                 <!-- Single Blog Post -->
-                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                    <!-- Post Thumbnail -->
-                    <div class="post-thumbnail">
-                        <img src="img/blog-img/b11.jpg" alt="">
+                @foreach($post as $posts)
+                    <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="post_images/{{ $posts->image }}" alt="">
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="#" class="headline">
+                                <h5 class="mb-0">{{ $posts->title }}</h5>
+                            </a>
+                        </div>
                     </div>
-                    <!-- Post Content -->
-                    <div class="post-content">
-                        <a href="#" class="headline">
-                            <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
                 <!-- Single Blog Post -->
-                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                    <!-- Post Thumbnail -->
-                    <div class="post-thumbnail">
-                        <img src="img/blog-img/b13.jpg" alt="">
-                    </div>
-                    <!-- Post Content -->
-                    <div class="post-content">
-                        <a href="#" class="headline">
-                            <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
-                        </a>
-                    </div>
-                </div>
-                <!-- Single Blog Post -->
-                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                    <!-- Post Thumbnail -->
-                    <div class="post-thumbnail">
-                        <img src="img/blog-img/b14.jpg" alt="">
-                    </div>
-                    <!-- Post Content -->
-                    <div class="post-content">
-                        <a href="#" class="headline">
-                            <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
-                        </a>
-                    </div>
-                </div>
-                <!-- Single Blog Post -->
-                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                    <!-- Post Thumbnail -->
-                    <div class="post-thumbnail">
-                        <img src="img/blog-img/b10.jpg" alt="">
-                    </div>
-                    <!-- Post Content -->
-                    <div class="post-content">
-                        <a href="#" class="headline">
-                            <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
-                        </a>
-                    </div>
-                </div>
-                <!-- Single Blog Post -->
-                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                    <!-- Post Thumbnail -->
-                    <div class="post-thumbnail">
-                        <img src="img/blog-img/b12.jpg" alt="">
-                    </div>
-                    <!-- Post Content -->
-                    <div class="post-content">
-                        <a href="#" class="headline">
-                            <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
-                        </a>
-                    </div>
-                </div>
+
             </div>
         </div>
+
+
         <!-- Widget Area -->
         <div class="sidebar-widget-area">
             <h5 class="title">Stay Connected</h5>
@@ -93,6 +47,8 @@
             </div>
         </div>
         <!-- Widget Area -->
+
+
         <div class="sidebar-widget-area">
             <h5 class="title">Today’s Pick</h5>
             <div class="widget-content">
@@ -100,16 +56,18 @@
                 <div class="single-blog-post todays-pick">
                     <!-- Post Thumbnail -->
                     <div class="post-thumbnail">
-                        <img src="img/blog-img/b22.jpg" alt="">
+                        <img src="post_images/{{ $posts->image }}" alt="">
                     </div>
                     <!-- Post Content -->
                     <div class="post-content px-0 pb-0">
                         <a href="#" class="headline">
-                            <h5>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h5>
+                            <h5>{{ $posts->title }}</h5>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>

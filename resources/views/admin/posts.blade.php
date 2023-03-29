@@ -20,7 +20,7 @@
 
                 <h1 class="text-center">All Posts</h1>
 
-                <table class="table-responsive">
+                <table class="table-responsive table-bordered">
                     <tr class="bg-info">
                         <th class="text-dark">Title</th>
                         <th class="text-dark">Details</th>
@@ -38,7 +38,9 @@
                             <td>{{ $post->topic }}</td>
                             <td>{{ $post->author }}</td>
                             <td>{{ $post->tag }}</td>
-                            <td></td>
+                            <td>
+                                <img src="/post_images/{{ $post->image }}" height="50" width="50">
+                            </td>
                             <td>{{ $post->created_at }}</td>
                         </tr>
                     @endforeach

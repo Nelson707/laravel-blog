@@ -45,6 +45,8 @@
                         <!-- Catagory Area -->
                         @include('home.dont_miss')
 
+
+
                         <!-- Catagory Area -->
                         @include('home.trending')
 

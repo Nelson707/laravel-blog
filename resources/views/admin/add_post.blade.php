@@ -34,12 +34,12 @@
 
                     <div class="mb-3">
                         <label>Post title</label>
-                        <input class="form-control text-dark bg-dark" type="text" id="postTitle" placeholder="Post Title..." name="title" style="color:#000" required>
+                        <input class="form-control text-light" type="text"  placeholder="Post Title..." name="title"  required>
                     </div>
 
                     <div class="mb-3">
                         <label>Post Details</label>
-                        <textarea class="form-control" rows="10" cols="10" id="postDetails" placeholder="Post Details..." name="details" style="color:#000" required></textarea>
+                        <textarea class="form-control text-light" rows="10" cols="10"  placeholder="Post Details..." name="details"  required></textarea>
                     </div>
 
                     <div class="mb-3">
@@ -56,12 +56,12 @@
 
                    <div class="mb-3">
                        <label>Post Author</label>
-                       <input class="form-control" type="text" placeholder="Post Author..." name="author" style="color:#fff;" required>
+                       <input class="form-control text-light" type="text" placeholder="Post Author..." name="author" required>
                    </div>
 
                     <div class="mb-3">
                         <label>Post Tag</label>
-                        <input class="form-control" type="text" placeholder="Post Tag..." name="tag"  style="color:#fff;"required>
+                        <input class="form-control text-light" type="text" placeholder="Post Tag..." name="tag" required>
                     </div>
 
                     <div class="mb-3">
