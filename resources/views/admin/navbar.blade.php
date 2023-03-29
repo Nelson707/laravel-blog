@@ -14,10 +14,8 @@
                 </form>
             </li>
 
-            <li style="height: 20px">
-                <x-app-layout>
-
-                </x-app-layout>
+            <li>
+                <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
             </li>
         </ul>
 

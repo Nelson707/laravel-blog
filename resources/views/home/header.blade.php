@@ -21,17 +21,15 @@
 
                             @auth()
                                 <li>
-                                    <x-app-layout>
-
-                                    </x-app-layout>
+                                    <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
                                 </li>
 
                             @else
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Login</a>
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Signup</a>
+                                <a class="nav-link" href="{{ route('register') }}">Signup</a>
                             </li>
                             @endauth
 

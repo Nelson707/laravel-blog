@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HomeController::class,'index']);
 
 Route::middleware([
     'auth:sanctum',
@@ -29,3 +29,20 @@ Route::middleware([
 });
 
 Route::get('/redirect',[HomeController::class,'redirect']);
+
+Route::get('/logout',[LogoutController::class,'logout']);
+
+
+Route::get('/add_topic',[AdminController::class,'add_topic']);
+
+Route::post('/create_topic',[AdminController::class,'create_topic']);
+
+Route::get('/delete_topic/{id}',[AdminController::class,'delete_topic']);
+
+Route::get('/add_post',[AdminController::class,'add_post']);
+
+Route::post('/create_post',[AdminController::class,'create_post']);
+
+Route::get('/show_posts',[AdminController::class,'show_posts']);
+
+
