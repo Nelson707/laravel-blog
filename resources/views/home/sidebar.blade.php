@@ -13,18 +13,20 @@
             <div class="widget-content">
                 <!-- Single Blog Post -->
                 @foreach($post as $posts)
-                    <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <img src="post_images/{{ $posts->image }}" alt="">
+                    @if($posts->tag=='Top Stories')
+                        <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                            <!-- Post Thumbnail -->
+                            <div class="post-thumbnail">
+                                <img src="post_images/{{ $posts->image }}" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <a href="#" class="headline">
+                                    <h5 class="mb-0">{{ $posts->title }}</h5>
+                                </a>
+                            </div>
                         </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <a href="#" class="headline">
-                                <h5 class="mb-0">{{ $posts->title }}</h5>
-                            </a>
-                        </div>
-                    </div>
+                    @endif
                 @endforeach
                 <!-- Single Blog Post -->
 
@@ -49,24 +51,28 @@
         <!-- Widget Area -->
 
 
-        <div class="sidebar-widget-area">
-            <h5 class="title">Today’s Pick</h5>
-            <div class="widget-content">
-                <!-- Single Blog Post -->
-                <div class="single-blog-post todays-pick">
-                    <!-- Post Thumbnail -->
-                    <div class="post-thumbnail">
-                        <img src="post_images/{{ $posts->image }}" alt="">
-                    </div>
-                    <!-- Post Content -->
-                    <div class="post-content px-0 pb-0">
-                        <a href="#" class="headline">
-                            <h5>{{ $posts->title }}</h5>
-                        </a>
+        @foreach($post as $posts)
+            @if($posts->tag=="Pick" )
+                <div class="sidebar-widget-area">
+                    <h5 class="title">Today’s Pick</h5>
+                    <div class="widget-content">
+                        <!-- Single Blog Post -->
+                        <div class="single-blog-post todays-pick">
+                            <!-- Post Thumbnail -->
+                            <div class="post-thumbnail">
+                                <img src="post_images/{{ $posts->image }}" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content px-0 pb-0">
+                                <a href="#" class="headline">
+                                    <h5>{{ $posts->title }}</h5>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            @endif
+        @endforeach
 
 
     </div>

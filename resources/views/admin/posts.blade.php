@@ -18,6 +18,13 @@
         <div class="main-panel">
             <div class="content-wrapper">
 
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                        <button type="button" class="close" style="float: right; border: none" data-dismiss="alert" aria-hidden="true">X</button>
+                    </div>
+                @endif
+
                 <h1 class="text-center">All Posts</h1>
 
                 <table class="table-responsive table-bordered">
@@ -29,6 +36,7 @@
                         <th class="text-dark">Tag</th>
                         <th class="text-dark">image</th>
                         <th class="text-dark">Created at</th>
+                        <th class="text-dark">Actions</th>
                     </tr>
 
                     @foreach($posts as $post)
@@ -42,6 +50,10 @@
                                 <img src="/post_images/{{ $post->image }}" height="50" width="50">
                             </td>
                             <td>{{ $post->created_at }}</td>
+                            <td>
+                                <a href="{{ url('update_post',$post->id) }}" class="btn btn-primary mb-2">Edit</a>
+                                <a onclick="return confirm('Are you sure you want to delete this post?')" href="{{ url('delete_post',$post->id) }}" class="btn btn-danger">Delete</a>
+                            </td>
                         </tr>
                     @endforeach
                 </table>

@@ -28,24 +28,24 @@
 
                 <h1 class="text-center">Add post</h1>
 
-                <form action="{{ url('create_post') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('edit_post',$post->id) }}" method="post" enctype="multipart/form-data">
 
                     @csrf
 
                     <div class="mb-3">
                         <label>Post title</label>
-                        <input class="form-control text-light" type="text"  placeholder="Post Title..." name="title"  required>
+                        <input class="form-control text-light" type="text"  placeholder="Post Title..." name="title"  required value="{{ $post->title }}">
                     </div>
 
                     <div class="mb-3">
                         <label>Post Details</label>
-                        <textarea class="form-control text-light" rows="10" cols="10"  placeholder="Post Details..." name="details"  required></textarea>
+                        <textarea class="form-control text-light" rows="10" cols="10"  placeholder="Post Details..." name="details"  required>{{ $post->details }}</textarea>
                     </div>
 
                     <div class="mb-3">
                         <label>Post Topic</label>
                         <select class="form-select" name="topic">
-                            <option selected>Select post topic</option>
+                            <option value="{{ $post->topic }}" selected>{{ $post->topic }}</option>
 
                             @foreach($topic as $topic)
                                 <option value="{{ $topic->topic_name }}">{{ $topic->topic_name }}</option>
@@ -54,23 +54,28 @@
                         </select>
                     </div>
 
-                   <div class="mb-3">
-                       <label>Post Author</label>
-                       <input class="form-control text-light" type="text" placeholder="Post Author..." name="author" required>
-                   </div>
+                    <div class="mb-3">
+                        <label>Post Author</label>
+                        <input class="form-control text-light" type="text" placeholder="Post Author..." name="author" required value="{{ $post->author }}">
+                    </div>
 
                     <div class="mb-3">
                         <label>Post Tag</label>
-                        <input class="form-control text-light" type="text" placeholder="Post Tag..." name="tag" required>
+                        <input class="form-control text-light" type="text" placeholder="Post Tag..." name="tag" required value="{{ $post->tag }}">
                     </div>
 
                     <div class="mb-3">
                         <label>Post Image: </label>
-                        <input type="file" name="image" required>
+                        <img src="/post_images/{{ $post->image }}" height="100" width="100">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Update Post Image: </label>
+                        <input type="file" name="image">
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary mb-3 btn-lg btn-block">Add Post</button>
+                    <button type="submit" class="btn btn-primary mb-3 btn-lg btn-block">Update Post</button>
 
 
 
