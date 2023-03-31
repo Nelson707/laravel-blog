@@ -22,7 +22,7 @@
                                     </div>
                                     <!-- Post Content -->
                                     <div class="post-content">
-                                        <a href="#" class="headline">
+                                        <a href="{{ url('post_details', $posts->id) }}" class="headline">
                                             <h5>{{ $posts->title }}</h5>
                                         </a>
                                         <p>{{ Str::limit($posts->details, 100) }}</p>
@@ -55,7 +55,7 @@
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
-                                    <a href="#" class="headline">
+                                    <a href="{{ url('post_details', $posts->id) }}" class="headline">
                                         <h5>{{ $posts->title }}</h5>
                                     </a>
                                     <!-- Post Meta -->

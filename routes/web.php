@@ -50,3 +50,12 @@ Route::get('/update_post/{id}',[AdminController::class,'update_post']);
 Route::post('/edit_post/{id}',[AdminController::class,'edit_post']);
 
 Route::get('/delete_post/{id}',[AdminController::class,'delete_post']);
+
+
+
+
+Route::get('/post_details/{id}',[HomeController::class,'post_details']);
+
+Route::post('/add_comment',[HomeController::class,'add_comment']);
+
+Route::post('/reply_comment',[HomeController::class,'reply_comment']);
