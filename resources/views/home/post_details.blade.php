@@ -55,7 +55,7 @@
                 <h1>Comments</h1>
                 <form action="{{ url('add_comment') }}" method="post">
                     @csrf
-                    <textarea name="comment" placeholder="join the conversation..." style="height: 150px; width: 700px; padding: 5px; border: 1px solid #33a6ec; border-radius: 5px" data-CommentId="{{ $comment->id }}"></textarea>
+                    <textarea name="comment" placeholder="join the conversation..." style="height: 150px; width: 700px; padding: 5px; border: 1px solid #33a6ec; border-radius: 5px"></textarea>
                     <br>
                     <input type="submit" class="btn btn-primary mt-2" value="Comment">
                 </form>
@@ -66,24 +66,35 @@
                         <div>
                             <b>{{ $comment->name }}</b>
                             <p>{{ $comment->comment }}</p>
-                            <a href="javascript:void(0);" onclick="reply(this)">Reply</a>
+                            <a href="javascript:void(0);" onclick="reply(this)" data-CommentId="{{ $comment->id }}" style="color: #0a58ca">Reply</a>
                         </div>
+
+
+                    @foreach($reply as $rep)
+                        @if($rep->comment_id==$comment->id)
+                            <div style="padding-left: 3%; padding-bottom: 10px; padding-top: 10px">
+                                <b>{{ $rep->name }}</b>
+                                <p style="color: grey">Replying to: {{ $comment->name }}</p>
+                                <p>{{ $rep->reply }}</p>
+                                <a href="javascript:void(0);" onclick="reply(this)" data-CommentId="{{ $comment->id }}" style="color: #0a58ca">Reply</a>
+                            </div>
+                        @endif
                     @endforeach
 
-                    <div style="padding-left: 3%; padding-bottom: 10px; padding-top: 10px">
-                        <b>Nelson</b>
-                        <p>This is an answer to a comment</p>
-                        <a href="javascript:void(0);" onclick="reply(this)">Reply</a>
-                    </div>
+                    @endforeach
                 </div>
 
                 <div style="display: none" class="replyDiv">
-                    <input type="text" name="" id="">
+
                     <form action="{{ url('reply_comment') }}" method="post">
                         @csrf
+
+                        <input type="text" name="commentId" id="commentId" hidden="">
+
                         <textarea name="reply" id="" style="height: 70px; width: 350px; padding: 5px; border: 1px solid #33a6ec; border-radius: 5px"></textarea>
                         <br>
-                        <a href="javascript:void(0);" class="btn btn-primary">Reply</a>
+
+                        <input type="submit" class="btn btn-primary" value="Reply">
 
                         <a href="javascript:void(0);" class="btn" onclick="reply_close(this)">Close</a>
                     </form>
@@ -140,6 +151,8 @@
 <script type="text/javascript">
     function reply(caller)
     {
+        document.getElementById('commentId').value = $(caller).attr('data-CommentId');
+
         $('.replyDiv').insertAfter($(caller));
 
         $('.replyDiv').show();
@@ -150,6 +163,18 @@
         $('.replyDiv').hide();
     }
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var scrollpos = localStorage.getItem('scrollpos');
+        if (scrollpos) window.scrollTo(0, scrollpos);
+    });
+
+    window.onbeforeunload = function(e) {
+        localStorage.setItem('scrollpos', window.scrollY);
+    };
+</script>
+
 
 <!-- jQuery (Necessary for All JavaScript Plugins) -->
 <script src="{{ asset('world/js/jquery/jquery-2.2.4.min.js') }}"></script>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Reply;
+use App\Models\Topic;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,19 +25,24 @@ class HomeController extends Controller
 
         if ($usertype == '1')
         {
-            return view('admin.dashboard');
+            $total_posts = post::all()->count();
+            $total_topics = topic::all()->count();
+            $total_users = user::all()->count();
+            return view('admin.dashboard', compact('total_posts', 'total_topics', 'total_users'));
         }
         else
         {
-            return view('home.index');
+            $post = post::all();
+            return view('home.index', compact('post'));
         }
     }
 
     public function post_details($id)
     {
         $post = post::find($id);
-        $comment = comment::all();
-        return view('home.post_details', compact('post','comment'));
+        $comment = comment::orderBy('id','desc')->get();
+        $reply = reply::all();
+        return view('home.post_details', compact('post','comment', 'reply'));
     }
 
     public function add_comment(Request $request)
