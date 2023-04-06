@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Topic;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -113,6 +114,28 @@ class AdminController extends Controller
         $post->delete();
 
         return redirect()->back()->with('message','Post deleted successfully');
+    }
+
+    public function all_users()
+    {
+        $user = user::all();
+        return view('admin.users', compact('user'));
+    }
+
+    public function delete_user($id)
+    {
+        $user = user::find($id);
+        $user->delete();
+
+        return redirect()->back()->with('message','User deleted successfully');
+    }
+
+    public function search_admin(Request $request)
+    {
+        $search_text = $request->search;
+        $posts = post::where('title','LIKE',"%$search_text%")->orWhere('details','LIKE',"%$search_text%")->orWhere('topic','LIKE',"%$search_text%")->get();
+
+        return view('admin.posts', compact('posts'));
     }
 
 }

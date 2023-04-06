@@ -90,4 +90,12 @@ class HomeController extends Controller
             return redirect('login');
         }
     }
+
+    public function post_search(Request $request)
+    {
+        $search_text = $request->search;
+        $post = post::where('title','LIKE',"%$search_text%")->orWhere('details','LIKE',"%$search_text%")->orWhere('topic','LIKE',"%$search_text%")->get();
+
+        return view('home.index', compact('post'));
+    }
 }

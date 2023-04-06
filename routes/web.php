@@ -32,6 +32,10 @@ Route::get('/redirect',[HomeController::class,'redirect']);
 
 Route::get('/logout',[LogoutController::class,'logout']);
 
+Route::get('/all_users',[AdminController::class,'all_users']);
+
+Route::get('/delete_user/{id}',[AdminController::class,'delete_user']);
+
 
 Route::get('/add_topic',[AdminController::class,'add_topic']);
 
@@ -51,6 +55,8 @@ Route::post('/edit_post/{id}',[AdminController::class,'edit_post']);
 
 Route::get('/delete_post/{id}',[AdminController::class,'delete_post']);
 
+Route::get('/search_admin',[AdminController::class,'search_admin']);
+
 
 
 
@@ -59,3 +65,5 @@ Route::get('/post_details/{id}',[HomeController::class,'post_details']);
 Route::post('/add_comment',[HomeController::class,'add_comment']);
 
 Route::post('/reply_comment',[HomeController::class,'reply_comment']);
+
+Route::get('/post_search',[HomeController::class,'post_search']);

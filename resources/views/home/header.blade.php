@@ -4,7 +4,7 @@
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg">
                     <!-- Logo -->
-                    <a class="navbar-brand" href="/"><img src="img/core-img/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="/" style="color: #fff">GAPbytes</a>
                     <!-- Navbar Toggler -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <!-- Navbar -->
@@ -56,8 +56,9 @@
                         </ul>
                         <!-- Search Form  -->
                         <div id="search-wrapper">
-                            <form action="#">
-                                <input type="text" id="search" placeholder="Search something...">
+                            <form action="{{ url('post_search') }}" method="get">
+                                @csrf
+                                <input type="text" id="search" name="search" placeholder="Search something...">
                                 <div id="close-icon"></div>
                                 <input class="d-none" type="submit" value="">
                             </form>

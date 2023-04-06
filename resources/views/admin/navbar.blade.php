@@ -9,8 +9,8 @@
 
         <ul class="navbar-nav w-100">
             <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                    <input type="text" class="form-control" placeholder="Search products">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search" action="{{ url('search_admin') }}" method="get">
+                    <input type="text" class="form-control" name="search" placeholder="Search Posts" style="color: #fff">
                 </form>
             </li>
 

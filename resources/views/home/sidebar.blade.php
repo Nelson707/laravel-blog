@@ -15,7 +15,7 @@
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
-                                <a href="#" class="headline">
+                                <a href="{{ url('post_details', $posts->id) }}" class="headline">
                                     <h5 class="mb-0">{{ $posts->title }}</h5>
                                 </a>
                             </div>
@@ -58,7 +58,7 @@
                             </div>
                             <!-- Post Content -->
                             <div class="post-content px-0 pb-0">
-                                <a href="#" class="headline">
+                                <a href="{{ url('post_details', $posts->id) }}" class="headline">
                                     <h5>{{ $posts->title }}</h5>
                                 </a>
                             </div>
