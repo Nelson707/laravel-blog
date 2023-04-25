@@ -45,7 +45,7 @@ class HomeController extends Controller
         return view('home.post_details', compact('post','comment', 'reply'));
     }
 
-    public function add_comment(Request $request)
+    public function add_comment(Request $request, $id)
     {
         if (Auth::user())
         {
@@ -54,6 +54,8 @@ class HomeController extends Controller
             $comment->name = Auth::user()->name;
 
             $comment->user_id = Auth::user()->id;
+
+            $comment->post_id = $id;
 
             $comment->comment = $request->comment;
 

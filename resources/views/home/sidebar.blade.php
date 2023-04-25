@@ -33,12 +33,12 @@
             <h5 class="title">Stay Connected</h5>
             <div class="widget-content">
                 <div class="social-area d-flex justify-content-between">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                    <a href="#"><i class="fa fa-vimeo"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-google"></i></a>
+                    <a href="https://www.facebook.com/nelson.nebo.5"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/_hdmof_"><i class="fa fa-twitter"></i></a>
+{{--                    <a href="#"><i class="fa fa-pinterest"></i></a>--}}
+{{--                    <a href="#"><i class="fa fa-vimeo"></i></a>--}}
+                    <a href="https://www.instagram.com/nelson_nebo/"><i class="fa fa-instagram"></i></a>
+{{--                    <a href="#"><i class="fa fa-google"></i></a>--}}
                 </div>
             </div>
         </div>

@@ -62,7 +62,7 @@ Route::get('/search_admin',[AdminController::class,'search_admin']);
 
 Route::get('/post_details/{id}',[HomeController::class,'post_details']);
 
-Route::post('/add_comment',[HomeController::class,'add_comment']);
+Route::post('/add_comment/{id}',[HomeController::class,'add_comment']);
 
 Route::post('/reply_comment',[HomeController::class,'reply_comment']);
 

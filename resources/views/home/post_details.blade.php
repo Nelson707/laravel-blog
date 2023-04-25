@@ -53,7 +53,7 @@
 
             <div style="margin-top: 50px">
                 <h1>Comments</h1>
-                <form action="{{ url('add_comment') }}" method="post">
+                <form action="{{ url('add_comment', $post->id) }}" method="post">
                     @csrf
                     <textarea name="comment" placeholder="join the conversation..." style="height: 150px; width: 700px; padding: 5px; border: 1px solid #33a6ec; border-radius: 5px"></textarea>
                     <br>
@@ -63,11 +63,13 @@
                 <div>
                     <h1 class="mt-5">All Comments</h1>
                     @foreach($comment as $comment)
+                        @if($post->id==$comment->post_id)
                         <div>
                             <b>{{ $comment->name }}</b>
                             <p>{{ $comment->comment }}</p>
                             <a href="javascript:void(0);" onclick="reply(this)" data-CommentId="{{ $comment->id }}" style="color: #0a58ca">Reply</a>
                         </div>
+                        @endif
 
 
                     @foreach($reply as $rep)

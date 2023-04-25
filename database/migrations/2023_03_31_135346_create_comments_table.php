@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('comment');
             $table->string('user_id');
+            $table->string('post_id');
             $table->timestamps();
         });
     }
