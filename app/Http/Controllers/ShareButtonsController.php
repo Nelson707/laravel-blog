@@ -15,11 +15,11 @@ class ShareButtonsController extends Controller
         $post = post::find($id);
         $comment = comment::orderBy('id','desc')->get();
         $reply = reply::all();
-        $data = [
-            'title' => $post->title,
-            'description' => $post->details,
-            'image' => $post->image,
-        ];
+//        $data = [
+//            'title' => $post->title,
+//            'description' => $post->details,
+//            'image' => $post->image,
+//        ];
 
         $shareButtons = (new Share)->page(
             url('/post_details/{id}'),
@@ -30,6 +30,6 @@ class ShareButtonsController extends Controller
             ->whatsapp()
             ->telegram();
 
-        return view('home.post_details', compact('post','comment','reply','data','shareButtons'));
+        return view('home.post_details', compact('post','comment','reply','shareButtons'));
     }
 }

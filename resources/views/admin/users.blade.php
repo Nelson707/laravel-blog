@@ -32,6 +32,7 @@
                         <th class="text-dark">Name</th>
                         <th class="text-dark">Email</th>
                         <th class="text-dark">Phone</th>
+                        <th class="text-dark">Created at</th>
                         <th class="text-dark">Role</th>
                         <th class="text-dark">Actions</th>
                     </tr>
@@ -40,6 +41,7 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->phone }}</td>
+                        <td>{{ $user->created_at }}</td>
                         @if($user->userType=='1')
                             <td>Admin</td>
                         @else
