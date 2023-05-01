@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ShareButtonsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,3 +68,5 @@ Route::post('/add_comment/{id}',[HomeController::class,'add_comment']);
 Route::post('/reply_comment',[HomeController::class,'reply_comment']);
 
 Route::get('/post_search',[HomeController::class,'post_search']);
+
+Route::get('/post_details/{id}',[ShareButtonsController::class,'share']);
