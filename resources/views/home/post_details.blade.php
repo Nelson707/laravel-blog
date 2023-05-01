@@ -92,6 +92,7 @@
 
 
                     @foreach($reply as $rep)
+                        @if($post->id==$comment->post_id)
                         @if($rep->comment_id==$comment->id)
                             <div style="padding-left: 3%; padding-bottom: 10px; padding-top: 10px">
                                 <b>{{ $rep->name }}</b>
@@ -99,6 +100,7 @@
                                 <p>{{ $rep->reply }}</p>
                                 <a href="javascript:void(0);" onclick="reply(this)" data-CommentId="{{ $comment->id }}" style="color: #0a58ca">Reply</a>
                             </div>
+                        @endif
                         @endif
                     @endforeach
 
